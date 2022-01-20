@@ -7,7 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1F362AEF27722C9300B1B9A2 /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 1F362AEE27722C9300B1B9A2 /* main.c */; };
+		1F362AEF27722C9300B1B9A2 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1F362AEE27722C9300B1B9A2 /* main.cpp */; };
+		1F63D65A2799677400E3E517 /* yuv_util.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1F63D6582799677400E3E517 /* yuv_util.cpp */; };
 		1FA923FA277B68A1000BD45A /* libavcodec.58.134.100.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F741A4F2774D5B5007C3CAB /* libavcodec.58.134.100.dylib */; };
 /* End PBXBuildFile section */
 
@@ -25,7 +26,9 @@
 
 /* Begin PBXFileReference section */
 		1F362AEB27722C9300B1B9A2 /* FFMpegDemo */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = FFMpegDemo; sourceTree = BUILT_PRODUCTS_DIR; };
-		1F362AEE27722C9300B1B9A2 /* main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
+		1F362AEE27722C9300B1B9A2 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		1F63D6582799677400E3E517 /* yuv_util.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = yuv_util.cpp; sourceTree = "<group>"; };
+		1F63D6592799677400E3E517 /* yuv_util.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = yuv_util.hpp; sourceTree = "<group>"; };
 		1F741A382774D381007C3CAB /* libavutil.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libavutil.a; path = ../../../../../opt/homebrew/Cellar/ffmpeg/4.4.1_3/lib/libavutil.a; sourceTree = "<group>"; };
 		1F741A392774D381007C3CAB /* libswresample.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libswresample.a; path = ../../../../../opt/homebrew/Cellar/ffmpeg/4.4.1_3/lib/libswresample.a; sourceTree = "<group>"; };
 		1F741A3A2774D381007C3CAB /* libavresample.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libavresample.a; path = ../../../../../opt/homebrew/Cellar/ffmpeg/4.4.1_3/lib/libavresample.a; sourceTree = "<group>"; };
@@ -80,10 +83,20 @@
 		1F362AED27722C9300B1B9A2 /* FFMpegDemo */ = {
 			isa = PBXGroup;
 			children = (
+				1F63D6572799675200E3E517 /* yuv */,
 				1FA923F9277B6276000BD45A /* FFMpegDemo.entitlements */,
-				1F362AEE27722C9300B1B9A2 /* main.c */,
+				1F362AEE27722C9300B1B9A2 /* main.cpp */,
 			);
 			path = FFMpegDemo;
+			sourceTree = "<group>";
+		};
+		1F63D6572799675200E3E517 /* yuv */ = {
+			isa = PBXGroup;
+			children = (
+				1F63D6582799677400E3E517 /* yuv_util.cpp */,
+				1F63D6592799677400E3E517 /* yuv_util.hpp */,
+			);
+			path = yuv;
 			sourceTree = "<group>";
 		};
 		1F741A372774D381007C3CAB /* Frameworks */ = {
@@ -169,7 +182,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1F362AEF27722C9300B1B9A2 /* main.c in Sources */,
+				1F63D65A2799677400E3E517 /* yuv_util.cpp in Sources */,
+				1F362AEF27722C9300B1B9A2 /* main.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -295,8 +309,14 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 35UCJZSCCT;
 				ENABLE_HARDENED_RUNTIME = YES;
-				HEADER_SEARCH_PATHS = /opt/homebrew/Cellar/ffmpeg/4.4.1_3/include;
-				LIBRARY_SEARCH_PATHS = /opt/homebrew/Cellar/ffmpeg/4.4.1_3/lib;
+				HEADER_SEARCH_PATHS = (
+					/opt/homebrew/Cellar/ffmpeg/4.4.1_3/include,
+					/usr/local/Cellar/ffmpeg/4.4.1_5/include,
+				);
+				LIBRARY_SEARCH_PATHS = (
+					/opt/homebrew/Cellar/ffmpeg/4.4.1_3/lib,
+					/usr/local/Cellar/ffmpeg/4.4.1_5/lib,
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -310,8 +330,14 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 35UCJZSCCT;
 				ENABLE_HARDENED_RUNTIME = YES;
-				HEADER_SEARCH_PATHS = /opt/homebrew/Cellar/ffmpeg/4.4.1_3/include;
-				LIBRARY_SEARCH_PATHS = /opt/homebrew/Cellar/ffmpeg/4.4.1_3/lib;
+				HEADER_SEARCH_PATHS = (
+					/opt/homebrew/Cellar/ffmpeg/4.4.1_3/include,
+					/usr/local/Cellar/ffmpeg/4.4.1_5/include,
+				);
+				LIBRARY_SEARCH_PATHS = (
+					/opt/homebrew/Cellar/ffmpeg/4.4.1_3/lib,
+					/usr/local/Cellar/ffmpeg/4.4.1_5/lib,
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
