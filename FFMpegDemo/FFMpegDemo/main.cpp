@@ -12,15 +12,29 @@ extern "C" {
 #include <libavcodec/avcodec.h>
 }
 
+void print_config();
+void test_yuv();
+
 int main(int argc, const char * argv[]) {
     // insert code here...
-    printf("Hello, World!\n");
+
+    print_config();
+    test_yuv();
+    return 0;
+}
+
+void print_config() {
     const char *config = avcodec_configuration();
     printf("%s\n", config);
+}
 
+void test_yuv() {
     std::string path = "/Users/liuke/workspace/project/github/ffmepgDemo/01.yuv";
-    yuv_util *yuv = new yuv_util(path);
-    std::string y_path = "/Users/liuke/workspace/project/github/ffmepgDemo/01.y";
+    yuv_util *yuv = new yuv_util(path, 3500, 2000);
+    std::string y_path = "/Users/liuke/workspace/project/github/ffmepgDemo/001.y";
     yuv->get_y(y_path);
-    return 0;
+    std::string u_path = "/Users/liuke/workspace/project/github/ffmepgDemo/001.u";
+    yuv->get_u(u_path);
+    std::string v_path = "/Users/liuke/workspace/project/github/ffmepgDemo/001.v";
+    yuv->get_v(v_path);
 }

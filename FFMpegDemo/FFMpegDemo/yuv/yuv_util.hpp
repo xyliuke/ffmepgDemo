@@ -13,7 +13,7 @@
 
 class yuv_util {
 public:
-    yuv_util(std::string &yuv_path);
+    yuv_util(std::string &yuv_path, int width, int height);
     void get_y(std::string &y_file);
     void get_u(std::string &u_file);
     void get_v(std::string &v_file);
