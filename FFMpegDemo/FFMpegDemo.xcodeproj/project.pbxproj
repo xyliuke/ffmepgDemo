@@ -9,7 +9,9 @@
 /* Begin PBXBuildFile section */
 		1F362AEF27722C9300B1B9A2 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1F362AEE27722C9300B1B9A2 /* main.cpp */; };
 		1F63D65A2799677400E3E517 /* yuv_util.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1F63D6582799677400E3E517 /* yuv_util.cpp */; };
-		1FA923FA277B68A1000BD45A /* libavcodec.58.134.100.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F741A4F2774D5B5007C3CAB /* libavcodec.58.134.100.dylib */; };
+		1FEC8FCD27C795210079382F /* pcm2mp3.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1FEC8FCB27C795210079382F /* pcm2mp3.cpp */; };
+		1FEC8FCF27C7964A0079382F /* libavcodec.59.18.100.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FEC8FCE27C7964A0079382F /* libavcodec.59.18.100.dylib */; };
+		1FEC8FD127C7B0970079382F /* libmp3lame.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FEC8FD027C7B0970079382F /* libmp3lame.0.dylib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -49,6 +51,10 @@
 		1F741A522774D5B5007C3CAB /* libavformat.58.76.100.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libavformat.58.76.100.dylib; path = ../../../../../opt/homebrew/Cellar/ffmpeg/4.4.1_3/lib/libavformat.58.76.100.dylib; sourceTree = "<group>"; };
 		1FA923EE277A15C3000BD45A /* lib */ = {isa = PBXFileReference; lastKnownFileType = folder; name = lib; path = ../../../../../opt/homebrew/Cellar/ffmpeg/4.4.1_3/lib; sourceTree = "<group>"; };
 		1FA923F9277B6276000BD45A /* FFMpegDemo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = FFMpegDemo.entitlements; sourceTree = "<group>"; };
+		1FEC8FCB27C795210079382F /* pcm2mp3.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = pcm2mp3.cpp; sourceTree = "<group>"; };
+		1FEC8FCC27C795210079382F /* pcm2mp3.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = pcm2mp3.hpp; sourceTree = "<group>"; };
+		1FEC8FCE27C7964A0079382F /* libavcodec.59.18.100.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libavcodec.59.18.100.dylib; path = ../../../../../../../usr/local/Cellar/ffmpeg/5.0/lib/libavcodec.59.18.100.dylib; sourceTree = "<group>"; };
+		1FEC8FD027C7B0970079382F /* libmp3lame.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libmp3lame.0.dylib; path = ../../../../../../../usr/local/Cellar/lame/3.100/lib/libmp3lame.0.dylib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,7 +62,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1FA923FA277B68A1000BD45A /* libavcodec.58.134.100.dylib in Frameworks */,
+				1FEC8FD127C7B0970079382F /* libmp3lame.0.dylib in Frameworks */,
+				1FEC8FCF27C7964A0079382F /* libavcodec.59.18.100.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -83,6 +90,7 @@
 		1F362AED27722C9300B1B9A2 /* FFMpegDemo */ = {
 			isa = PBXGroup;
 			children = (
+				1FEC8FCA27C795000079382F /* audio */,
 				1F63D6572799675200E3E517 /* yuv */,
 				1FA923F9277B6276000BD45A /* FFMpegDemo.entitlements */,
 				1F362AEE27722C9300B1B9A2 /* main.cpp */,
@@ -102,6 +110,8 @@
 		1F741A372774D381007C3CAB /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				1FEC8FD027C7B0970079382F /* libmp3lame.0.dylib */,
+				1FEC8FCE27C7964A0079382F /* libavcodec.59.18.100.dylib */,
 				1FA923EE277A15C3000BD45A /* lib */,
 				1F741A4F2774D5B5007C3CAB /* libavcodec.58.134.100.dylib */,
 				1F741A4A2774D5B5007C3CAB /* libavdevice.58.13.100.dylib */,
@@ -123,6 +133,15 @@
 				1F741A3F2774D381007C3CAB /* libswscale.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		1FEC8FCA27C795000079382F /* audio */ = {
+			isa = PBXGroup;
+			children = (
+				1FEC8FCB27C795210079382F /* pcm2mp3.cpp */,
+				1FEC8FCC27C795210079382F /* pcm2mp3.hpp */,
+			);
+			path = audio;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -184,6 +203,7 @@
 			files = (
 				1F63D65A2799677400E3E517 /* yuv_util.cpp in Sources */,
 				1F362AEF27722C9300B1B9A2 /* main.cpp in Sources */,
+				1FEC8FCD27C795210079382F /* pcm2mp3.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -310,12 +330,14 @@
 				DEVELOPMENT_TEAM = 35UCJZSCCT;
 				ENABLE_HARDENED_RUNTIME = YES;
 				HEADER_SEARCH_PATHS = (
-					/opt/homebrew/Cellar/ffmpeg/4.4.1_3/include,
-					/usr/local/Cellar/ffmpeg/4.4.1_5/include,
+					/opt/homebrew/Cellar/ffmpeg/5.0/include,
+					/usr/local/Cellar/ffmpeg/5.0/include,
+					/usr/local/Cellar/lame/3.100/include,
 				);
 				LIBRARY_SEARCH_PATHS = (
-					/opt/homebrew/Cellar/ffmpeg/4.4.1_3/lib,
-					/usr/local/Cellar/ffmpeg/4.4.1_5/lib,
+					/opt/homebrew/Cellar/ffmpeg/5.0/lib,
+					/usr/local/Cellar/ffmpeg/5.0/lib,
+					/usr/local/Cellar/lame/3.100/lib,
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -331,12 +353,14 @@
 				DEVELOPMENT_TEAM = 35UCJZSCCT;
 				ENABLE_HARDENED_RUNTIME = YES;
 				HEADER_SEARCH_PATHS = (
-					/opt/homebrew/Cellar/ffmpeg/4.4.1_3/include,
-					/usr/local/Cellar/ffmpeg/4.4.1_5/include,
+					/opt/homebrew/Cellar/ffmpeg/5.0/include,
+					/usr/local/Cellar/ffmpeg/5.0/include,
+					/usr/local/Cellar/lame/3.100/include,
 				);
 				LIBRARY_SEARCH_PATHS = (
-					/opt/homebrew/Cellar/ffmpeg/4.4.1_3/lib,
-					/usr/local/Cellar/ffmpeg/4.4.1_5/lib,
+					/opt/homebrew/Cellar/ffmpeg/5.0/lib,
+					/usr/local/Cellar/ffmpeg/5.0/lib,
+					/usr/local/Cellar/lame/3.100/lib,
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com;
 				PRODUCT_NAME = "$(TARGET_NAME)";
